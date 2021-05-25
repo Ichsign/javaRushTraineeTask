@@ -9,10 +9,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -42,12 +40,6 @@ public class PlayerServiceImpl implements PlayerService {
         if (request.getOrder() != null) {
             sort = Sort.by(request.getOrder().getFieldName());
         }
-//        if (pageNumber != null && pageSize != null) {
-//            Pageable requestedPage = PageRequest.of(pageNumber, pageSize, sort);
-//            return playerRepository.findAll(playerSpecification(request), requestedPage).getContent();
-//        } else {
-//            return playerRepository.findAll(playerSpecification(request), sort);
-//        }
         int size = pageSize != null ? pageSize : 3;
         int number = pageNumber != null ? pageNumber : 0;
         Pageable requestedPage = PageRequest.of(number, size, sort);
@@ -65,7 +57,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void createPlayer(CreatePlayerRequest request) {
+    public Player createPlayer(CreatePlayerRequest request) {
         Player player = new Player();
         player.setBanned(request.isBanned());
         player.setBirthday(new Date(request.getBirthday()));
@@ -76,7 +68,7 @@ public class PlayerServiceImpl implements PlayerService {
         player.setUntilNextLevel(leftUntilNextLevel(player.getLevel(), request.getExperience()));
         player.setRace(request.getRace().name());
         player.setTitle(request.getTitle());
-        playerRepository.save(player);
+        return playerRepository.save(player);
     }
 
     @Override

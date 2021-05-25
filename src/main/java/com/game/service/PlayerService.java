@@ -16,7 +16,7 @@ public interface PlayerService {
 
     boolean deleteById(Long id);
 
-    void createPlayer(CreatePlayerRequest player);
+    Player createPlayer(CreatePlayerRequest player);
 
     long getCount(FilterRequest request);
 

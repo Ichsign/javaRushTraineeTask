@@ -45,8 +45,8 @@ public class PlayerController {
         if (!validator.isValid(request)) {
             return ResponseEntity.badRequest().build();
         }
-        playerService.createPlayer(request);
-        return ResponseEntity.ok(null);
+        Player player = playerService.createPlayer(request);
+        return ResponseEntity.ok(player);
     }
 
     //fixme: our users lost and internal error happens

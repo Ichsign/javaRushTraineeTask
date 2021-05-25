@@ -62,7 +62,6 @@ public class CreatePlayerTest extends AbstractTest {
     }
 
     //test6
-    @Ignore
     @Test
     public void createPlayerTest() throws Exception {
         ResultActions resultActions = mockMvc.perform(post("/rest/players/")
