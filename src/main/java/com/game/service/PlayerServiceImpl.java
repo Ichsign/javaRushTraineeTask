@@ -42,12 +42,16 @@ public class PlayerServiceImpl implements PlayerService {
         if (request.getOrder() != null) {
             sort = Sort.by(request.getOrder().getFieldName());
         }
-        if (pageNumber != null && pageSize != null) {
-            Pageable requestedPage = PageRequest.of(pageNumber, pageSize, sort);
-            return playerRepository.findAll(playerSpecification(request), requestedPage).getContent();
-        } else {
-            return playerRepository.findAll(playerSpecification(request), sort);
-        }
+//        if (pageNumber != null && pageSize != null) {
+//            Pageable requestedPage = PageRequest.of(pageNumber, pageSize, sort);
+//            return playerRepository.findAll(playerSpecification(request), requestedPage).getContent();
+//        } else {
+//            return playerRepository.findAll(playerSpecification(request), sort);
+//        }
+        int size = pageSize != null ? pageSize : 3;
+        int number = pageNumber != null ? pageNumber : 0;
+        Pageable requestedPage = PageRequest.of(number, size, sort);
+        return playerRepository.findAll(playerSpecification(request), requestedPage).getContent();
     }
 
     @Override

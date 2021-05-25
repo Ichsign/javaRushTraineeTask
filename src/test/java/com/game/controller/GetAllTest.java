@@ -26,7 +26,6 @@ public class GetAllTest extends AbstractTest {
     };
 
     //test1
-    @Ignore
     @Test
     public void getAllWithoutFiltersReturnAllPlayers() throws Exception {
         ResultActions resultActions = mockMvc.perform(get("/rest/players?pageNumber=0&pageSize=3"))
@@ -42,7 +41,6 @@ public class GetAllTest extends AbstractTest {
     }
 
     //test2
-    @Ignore
     @Test
     public void getAllWithFiltersNamePageNumber() throws Exception {
         ResultActions resultActions = mockMvc.perform(get("/rest/players?name=ра&pageNumber=1&pageSize=3"))
@@ -60,7 +58,6 @@ public class GetAllTest extends AbstractTest {
 
     //test3
     @Test
-    @Ignore
     public void getAllWithFiltersTitlePageSize() throws Exception {
         ResultActions resultActions = mockMvc.perform(get("/rest/players?title=ой&pageNumber=0&pageSize=4"))
                 .andExpect(status().isOk());
@@ -119,7 +116,6 @@ public class GetAllTest extends AbstractTest {
     }
 
     //test6
-    @Ignore
     @Test
     public void getAllWithFiltersBannedMinLevelMaxLevel() throws Exception {
         ResultActions resultActions = mockMvc.perform(get("/rest/players?banned=false&minLevel=10&maxLevel=30&pageNumber=0&pageSize=3"))
@@ -157,7 +153,6 @@ public class GetAllTest extends AbstractTest {
     }
 
     //test8
-    @Ignore
     @Test
     public void getAllWithFiltersAfterBeforeMinExperienceMaxExperience() throws Exception {
         //after 00:00 01.01.2005
