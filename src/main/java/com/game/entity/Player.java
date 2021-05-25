@@ -24,19 +24,13 @@ public class Player {
     @Column(name = "title")
     private String title;
 
-    @Basic
-    private String race;
+    @Column(name = "race")
+    @Enumerated(EnumType.STRING)
+    private Race race;
 
-    @Transient
-    @JsonIgnore
-    public Race enumRace;
-
-    @Basic
-    private String profession;
-
-    @Transient
-    @JsonIgnore
-    private Profession enumProfession;
+    @Column(name = "profession")
+    @Enumerated(EnumType.STRING)
+    private Profession profession;
 
     @Column(name = "experience")
     private Integer experience;
@@ -54,11 +48,20 @@ public class Player {
     private Boolean banned = false;
 
 
+    public Race getRace() {
+        return race;
+    }
 
-    @PostLoad
-    public void postLoad() {
-        this.enumRace = Race.valueOf(this.race);
-        this.enumProfession = Profession.valueOf(this.profession);
+    public void setRace(Race race) {
+        this.race = race;
+    }
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
     }
 
     public Long getId() {
@@ -83,22 +86,6 @@ public class Player {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public String getProfession() {
-        return profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
     }
 
     public Integer getExperience() {

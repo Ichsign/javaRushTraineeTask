@@ -33,16 +33,13 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
 
-    //TODO: pagination filter
     @Override
     public List<Player> getAllPlayers(FilterRequest request, Integer pageSize, Integer pageNumber) {
         Sort sort = Sort.unsorted();
         if (request.getOrder() != null) {
             sort = Sort.by(request.getOrder().getFieldName());
         }
-        int size = pageSize != null ? pageSize : 3;
-        int number = pageNumber != null ? pageNumber : 0;
-        Pageable requestedPage = PageRequest.of(number, size, sort);
+        Pageable requestedPage = PageRequest.of(pageNumber, pageSize, sort);
         return playerRepository.findAll(playerSpecification(request), requestedPage).getContent();
     }
 
@@ -63,10 +60,10 @@ public class PlayerServiceImpl implements PlayerService {
         player.setBirthday(new Date(request.getBirthday()));
         player.setExperience(request.getExperience());
         player.setName(request.getName());
-        player.setProfession(request.getProfession().name());
+        player.setProfession(request.getProfession());
         player.setLevel(countLevel(request.getExperience()));
         player.setUntilNextLevel(leftUntilNextLevel(player.getLevel(), request.getExperience()));
-        player.setRace(request.getRace().name());
+        player.setRace(request.getRace());
         player.setTitle(request.getTitle());
         return playerRepository.save(player);
     }
@@ -95,10 +92,10 @@ public class PlayerServiceImpl implements PlayerService {
                 p.setBirthday(new Date(request.getBirthday()));
             }
             if (request.getProfession() != null) {
-                p.setProfession(request.getProfession().name());
+                p.setProfession(request.getProfession());
             }
             if (request.getRace() != null) {
-                p.setRace(request.getRace().name());
+                p.setRace(request.getRace());
             }
             if (request.isBanned() != null) {
                 p.setBanned(request.isBanned());

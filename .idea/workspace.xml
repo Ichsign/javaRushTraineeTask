@@ -7,9 +7,9 @@
     <list default="true" id="f6fd00dc-4ecb-478d-8f0c-2a674d836175" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/game/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/game/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/game/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/game/service/PlayerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/service/PlayerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/game/controller/CreatePlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/game/controller/CreatePlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/game/service/Specifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/game/service/Specifications.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/game/service/PlayerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/game/service/PlayerServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -95,7 +103,7 @@
       <workItem from="1621887544835" duration="42000" />
       <workItem from="1621887591623" duration="455000" />
       <workItem from="1621922801548" duration="898000" />
-      <workItem from="1621923973554" duration="335000" />
+      <workItem from="1621923973554" duration="1677000" />
     </task>
     <servers />
   </component>

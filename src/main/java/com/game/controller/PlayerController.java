@@ -29,7 +29,7 @@ public class PlayerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Player>> getPlayers(FilterRequest request, @RequestParam @Nullable Integer pageSize, @RequestParam @Nullable Integer pageNumber) {
+    public ResponseEntity<List<Player>> getPlayers(FilterRequest request, @RequestParam(defaultValue = "3") Integer pageSize, @RequestParam(defaultValue = "0") Integer pageNumber) {
         List<Player> players = playerService.getAllPlayers(request, pageSize, pageNumber);
         return ResponseEntity.ok(players);
     }
@@ -49,7 +49,6 @@ public class PlayerController {
         return ResponseEntity.ok(player);
     }
 
-    //fixme: our users lost and internal error happens
     @GetMapping("/{id}")
     public ResponseEntity<Player> getPlayer(@PathVariable Long id) {
         if (id <= 0) {
@@ -68,7 +67,6 @@ public class PlayerController {
         return playerService.updateById(id, player).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    //TODO: id checker and 400 error if invalid
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlayer(@PathVariable Long id) {
         if (id <= 0) {

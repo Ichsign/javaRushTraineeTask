@@ -77,7 +77,8 @@ public class Specifications {
     }
 
     private static Specification<Player> professionSpecification(Profession profession) {
-        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("profession"), profession.name());
+        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("profession"), profession);
+//        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("profession"), profession.name());
     }
 
     private static Specification<Player> nameSpecification(String name) {
@@ -89,7 +90,8 @@ public class Specifications {
     }
 
     private static Specification<Player> raceSpecification(Race race) {
-        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("race"), race.name());
+        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("race"), race);
+//        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("race"), race.name());
     }
 
 }
