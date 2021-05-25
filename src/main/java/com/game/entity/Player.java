@@ -10,41 +10,51 @@ import java.util.Date;
 @Entity
 @Table(name = "player")
 public class Player {
-
+    //TODO: finish init and add variables to Specification also
+    public static final String ID_FIELD = "id";
+    public static final String NAME_FIELD = "name";
+    public static final String TITLE_FIELD = "title";
+    public static final String RACE_FIELD = "race";
+    public static final String PROFESSION_FIELD = "profession";
+    public static final String EXP_FIELD = "experience";
+    public static final String LVL_FIELD = "level";
+    public static final String UNTIL_NEXT_LVL_FIELD = "untilNextLevel";
+    public static final String BIRTHDAY_FIELD = "birthday";
+    public static final String BANNED_FIELD = "banned";
 
     @Id
-    @Column(name = "id")
+    @Column(name = ID_FIELD)
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = NAME_FIELD)
     private String name;
 
-    @Column(name = "title")
+    @Column(name = TITLE_FIELD)
     private String title;
 
-    @Column(name = "race")
+    @Column(name = RACE_FIELD)
     @Enumerated(EnumType.STRING)
     private Race race;
 
-    @Column(name = "profession")
+    @Column(name = PROFESSION_FIELD)
     @Enumerated(EnumType.STRING)
     private Profession profession;
 
-    @Column(name = "experience")
+    @Column(name = EXP_FIELD)
     private Integer experience;
 
-    @Column(name = "level")
+    @Column(name = LVL_FIELD)
     private Integer level;
 
-    @Column(name = "untilNextLevel")
+    @Column(name = UNTIL_NEXT_LVL_FIELD)
     private Integer untilNextLevel;
 
-    @Column(name = "birthday")
+    @Column(name = BIRTHDAY_FIELD)
     private Date birthday;
 
-    @Column(name = "banned")
+    @Column(name = BANNED_FIELD)
     private Boolean banned = false;
 
 

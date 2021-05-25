@@ -8,6 +8,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Date;
 
+import static com.game.entity.Player.*;
+
 public class Specifications {
 
     public static Specification<Player> playerSpecification(FilterRequest request) {
@@ -49,49 +51,47 @@ public class Specifications {
     }
 
     private static Specification<Player> maxLevelSpecification(Integer lvl) {
-        return (root, query, criterialBuilder) -> criterialBuilder.lessThanOrEqualTo(root.get("level"), lvl);
+        return (root, query, criterialBuilder) -> criterialBuilder.lessThanOrEqualTo(root.get(LVL_FIELD), lvl);
     }
 
     private static Specification<Player> minLevelSpecification(Integer lvl) {
-        return (root, query, criterialBuilder) -> criterialBuilder.greaterThanOrEqualTo(root.get("level"), lvl);
+        return (root, query, criterialBuilder) -> criterialBuilder.greaterThanOrEqualTo(root.get(LVL_FIELD), lvl);
     }
 
     private static Specification<Player> maxExperienceSpecification(Integer exp) {
-        return (root, query, criterialBuilder) -> criterialBuilder.lessThanOrEqualTo(root.get("experience"), exp);
+        return (root, query, criterialBuilder) -> criterialBuilder.lessThanOrEqualTo(root.get(EXP_FIELD), exp);
     }
 
     private static Specification<Player> minExperienceSpecification(Integer exp) {
-        return (root, query, criterialBuilder) -> criterialBuilder.greaterThanOrEqualTo(root.get("experience"), exp);
+        return (root, query, criterialBuilder) -> criterialBuilder.greaterThanOrEqualTo(root.get(EXP_FIELD), exp);
     }
 
     private static Specification<Player> bannedSpecification(Boolean ban) {
-        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("banned"), ban);
+        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get(BANNED_FIELD), ban);
     }
 
     private static Specification<Player> birthdayBeforeSpecification(Long birthday) {
-        return (root, query, criterialBuilder) -> criterialBuilder.lessThan(root.get("birthday"), new Date(birthday));
+        return (root, query, criterialBuilder) -> criterialBuilder.lessThan(root.get(BIRTHDAY_FIELD), new Date(birthday));
     }
 
     private static Specification<Player> birthdayAfterSpecification(Long birthday) {
-        return (root, query, criterialBuilder) -> criterialBuilder.greaterThan(root.get("birthday"), new Date(birthday));
+        return (root, query, criterialBuilder) -> criterialBuilder.greaterThan(root.get(BIRTHDAY_FIELD), new Date(birthday));
     }
 
     private static Specification<Player> professionSpecification(Profession profession) {
-        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("profession"), profession);
-//        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("profession"), profession.name());
+        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get(PROFESSION_FIELD), profession);
     }
 
     private static Specification<Player> nameSpecification(String name) {
-        return (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + name + "%");
+        return (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get(NAME_FIELD), "%" + name + "%");
     }
 
     private static Specification<Player> titleSpecification(String name) {
-        return (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("title"), "%" + name + "%");
+        return (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get(TITLE_FIELD), "%" + name + "%");
     }
 
     private static Specification<Player> raceSpecification(Race race) {
-        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("race"), race);
-//        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get("race"), race.name());
+        return (root, query, criterialBuilder) -> criterialBuilder.equal(root.get(RACE_FIELD), race);
     }
 
 }
